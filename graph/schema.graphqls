@@ -1,0 +1,41 @@
+# GraphQL schema example
+#
+# https://gqlgen.com/getting-started/
+
+type Post {
+  id: ID!
+  text: String!
+  title: String!
+  tags?: [String]
+}
+
+type Comementary {
+  id: ID!
+  title: String
+  text: String
+  author: String
+}
+
+type Query {
+  posts: [Post!]!
+  comments: [Comementary!]!
+}
+
+input NewPost {
+  id: ID!
+  title: String!
+  text: String!
+  tags: [String]
+}
+
+input NewCommentary {
+  id: ID!
+  title: String!
+  text: String!
+}
+
+type Mutation {
+  createPost(input: NewPost!): Post!
+  createCommentary(input: NewCommentary!): Comementary!
+}
+
